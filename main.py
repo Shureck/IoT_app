@@ -108,9 +108,9 @@ class App(QWidget):
         button.setToolTip('This is an example button')
         button.move(100, 70)
         button.clicked.connect(self.on_click)
-
-        button1 = QPushButton("Reconect", self)
-        button1.clicked.connect(self.on_click_update)
+        #
+        # button1 = QPushButton("Reconect", self)
+        # button1.clicked.connect(self.on_click_update)
 
         lay = QtWidgets.QVBoxLayout(self)
         lay.addWidget(self.label)
@@ -119,7 +119,7 @@ class App(QWidget):
         lay.addWidget(self.comboBox2)
         lay.addWidget(button)
         lay.addWidget(self.radio)
-        lay.addWidget(button1)
+        # lay.addWidget(button1)
         lay.addStretch()
 
         self.show()
@@ -135,9 +135,7 @@ class App(QWidget):
     @pyqtSlot()
     def on_click_update(self):
         print("")
-        global th
-        th.stop()
-        th.stopped()
+        ws.send("Hello")
 
     def handleActivated(self, index):
         global port_name
